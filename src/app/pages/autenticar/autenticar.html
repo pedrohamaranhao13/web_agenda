@@ -14,7 +14,7 @@ to-blue-950 flex items-center justify-center px-4 py-10">
         </p>
       </div>
 
-      <form class="space-y-5">
+      <form [formGroup]="formAutenticar" (ngSubmit)="autenticar()" class="space-y-5">
         <div>
           <label for="email" class="mb-2 block text-sm  
                                    font-medium text-blue-100">
@@ -24,7 +24,7 @@ to-blue-950 flex items-center justify-center px-4 py-10">
           <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" class="w-full rounded-xl border border-blue-500/30 bg-slate- 
                950/80 px-4 py-3 text-white placeholder:text-slate-500  
                outline-none transition focus:border-blue-400 focus:ring-2  
-               focus:ring-blue-500/40" />
+               focus:ring-blue-500/40" formControlName="email"/>
         </div>
         <div>
           <label for="senha" class="mb-2 block text-sm  
@@ -35,7 +35,7 @@ to-blue-950 flex items-center justify-center px-4 py-10">
           <input id="senha" name="senha" type="password" placeholder="Digite sua senha" class="w-full rounded-xl border border-blue-500/30 bg-slate- 
                 950/80 px-4 py-3 text-white placeholder:text-slate-500  
                 outline-none transition focus:border-blue-400  
-                focus:ring-2 focus:ring-blue-500/40" />
+                focus:ring-2 focus:ring-blue-500/40" formControlName="senha"/>
         </div>
 
         <button type="submit" class="w-full rounded-xl bg-gradient-to-r from-blue-700 to- 
@@ -43,7 +43,7 @@ to-blue-950 flex items-center justify-center px-4 py-10">
               shadow-blue-500/25 transition hover:from-blue-600  
               hover:to-blue-400 focus:outline-none focus:ring-2  
               focus:ring-blue-400 focus:ring-offset-2  
-              focus:ring-offset-black">
+              focus:ring-offset-black" [disabled]="formAutenticar.invalid">
           Acessar conta
         </button>
       </form>
